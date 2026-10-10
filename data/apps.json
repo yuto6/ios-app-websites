@@ -1,0 +1,218 @@
+[
+  {
+    "id": "simple-pfc",
+    "name": "Simple PFC",
+    "headline": "食事を記録。バランスが見える。",
+    "category": "PFC・カロリー管理",
+    "description": "たんぱく質・脂質・炭水化物とカロリーを、写真・AI・食品検索から記録。毎日の食事のバランスを見やすく振り返れます。",
+    "features": [
+      "写真・食事名からAIで栄養値を推定",
+      "食品検索とお気に入りで、いつもの食事を記録",
+      "週・月・年のレポートで振り返り"
+    ],
+    "faq": [
+      [
+        "写真だけで栄養値がわかりますか？",
+        "AIでPFC・カロリーを推定できます。推定値は実際の栄養成分と異なる場合があるため、内容を確認して記録してください。"
+      ],
+      [
+        "よく食べるメニューを使い回せますか？",
+        "お気に入り登録とホームのクイック追加に対応しています。"
+      ]
+    ],
+    "storeUrl": "https://apps.apple.com/jp/app/id6754586320",
+    "minimumOS": "17.0",
+    "version": "2.0",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/20/ad/6820adb6-d139-5aa1-14d7-b6240e7b2866/PFCRecordsIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0c/ae/95/0cae95fe-fa4c-2ab5-8daf-15a399205247/Apple_iPhone_18_Pro_Screenshot_1.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/78/f0/c4/78f0c49e-8e00-aec4-03b8-3f452b63abf9/Apple_iPhone_18_Pro_Screenshot_2.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/71/4d/cf/714dcf0c-64c8-4eab-6338-fbfe85e20a5e/Apple_iPhone_18_Pro_Screenshot_3.png/320x480bb.jpg"
+    ],
+    "privacyUrl": "https://website-develop-371a8.web.app/plivacyPolicy.html",
+    "legacyMarketingUrl": "https://website-develop-371a8.web.app/",
+    "supportEmail": "develop.stone.2022@gmail.com",
+    "repository": "yuto6/PFCRecords",
+    "auditedCommit": "c3a78ed7de496c4fcc294e65f387e831384efb81"
+  },
+  {
+    "id": "kuropuru",
+    "name": "クロプル家計簿",
+    "headline": "家計の記録を、もっと軽やかに。",
+    "category": "家計簿・支出管理",
+    "description": "会員登録なしで始めるシンプルな家計簿。レシート入力やiCloud同期で、毎日の支出管理を続けやすく。",
+    "features": [
+      "iCloudで端末間の記録を同期",
+      "レシートスキャンで入力をサポート",
+      "棒グラフ・円グラフで支出を振り返り"
+    ],
+    "faq": [
+      [
+        "会員登録は必要ですか？",
+        "専用の会員登録なしで利用を始められます。iCloud同期には端末のiCloud設定が必要です。"
+      ],
+      [
+        "レシートから入力できますか？",
+        "レシートスキャンに対応しています。読み取り結果を確認して記録してください。"
+      ]
+    ],
+    "storeUrl": "https://apps.apple.com/jp/app/id6479568956",
+    "minimumOS": "17.0",
+    "version": "2.3",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8d/06/06/8d060696-827d-b526-db74-157041018e7f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/dd/7b/0a/dd7b0ac7-d620-36b0-4413-d1ba25298ba4/Apple_iPhone_11_Pro_Max_Screenshot_1.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bf/0d/81/bf0d8191-72e0-363c-0e68-238fc61a6e4d/Apple_iPhone_11_Pro_Max_Screenshot_2.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/84/bc/2b/84bc2b8f-be8f-7ab4-69f3-0ee3744ea64e/Apple_iPhone_11_Pro_Max_Screenshot_3.png/320x480bb.jpg"
+    ],
+    "privacyUrl": "https://raw.githubusercontent.com/stoneSurume/createSchedules/main/privacy%20policy",
+    "legacyMarketingUrl": "https://stonesurume.github.io/",
+    "supportEmail": "develop.stone.2022@gmail.com",
+    "repository": "yuto6/SynchroSimpleExpenses",
+    "auditedCommit": "f4174d0f438301218e35014a757066f36288e589"
+  },
+  {
+    "id": "giga-helper",
+    "name": "ギガ活サポーター",
+    "headline": "コードをまとめて、期限を確認。",
+    "category": "povoコード管理",
+    "description": "povoのプロモーションコードやギガ活コードをまとめて管理。メールからの登録と期限の確認を、手元でシンプルに。",
+    "features": [
+      "メール本文からコードをまとめて追加",
+      "使用期限と使用状況を確認",
+      "iCloudで端末間のコードを同期"
+    ],
+    "faq": [
+      [
+        "メールから複数のコードを追加できますか？",
+        "メール本文をコピーして追加できます。認識されたコードと使用期限を確認してください。"
+      ],
+      [
+        "別の端末でも使えますか？",
+        "iCloud同期に対応しています。端末のiCloud設定を確認してください。"
+      ]
+    ],
+    "storeUrl": "https://apps.apple.com/jp/app/id6446580313",
+    "minimumOS": "15.0",
+    "version": "4.3",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/b4/b7/06b4b78d-1c0f-c1ed-73db-0c92b608bba3/AppIconNew-0-0-1x_U007epad-0-1-sRGB-85-220.png/512x512bb.jpg",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bd/81/b4/bd81b473-1a95-367e-7fa9-6e641ff1a452/667ca398-35b5-4a7b-b98c-0cdb66023b91__U4e2d_U592e_U5bc4_U305b_U30cf_U3099_U30fc_U30b7_U3099_U30e7_U30f3-03.jpg/392x696bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/23/1d/26/231d2691-d12c-bf7f-096d-88d9daf456dd/6c19a33e-1a80-4d0e-9b48-f4d8641171ae_Apple_iPhone_8_Plus_U306e_U30b3_U30d2_U309a_U30fc.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/48/60/f6/4860f642-1fe4-807c-dedb-92fe779c24cf/a6e2f41f-97c4-4bcc-a9ce-3ec88708a072__U4e2d_U592e_U5bc4_U305b_U30cf_U3099_U30fc_U30b7_U3099_U30e7_U30f3-04.jpg/392x696bb.jpg"
+    ],
+    "privacyUrl": "https://raw.githubusercontent.com/stoneSurume/createSchedules/main/privacy%20policy",
+    "legacyMarketingUrl": "https://giga-sapo.web.app/",
+    "supportEmail": "develop.stone.2022@gmail.com",
+    "repository": "yuto6/gigaHelper",
+    "auditedCommit": "1f21a2f236a8136ec733806b97021693f940a1c4"
+  },
+  {
+    "id": "car-assignments",
+    "name": "Car Assignments",
+    "headline": "みんなの移動に、納得できる車割を。",
+    "category": "グループの車割",
+    "description": "部活・サークル・合宿・遠征の車割を、登録メンバーと条件から作成。同乗の組み合わせや定員を考慮して、グループの移動準備をサポート。",
+    "features": [
+      "メンバーとドライバーを登録して車割を作成",
+      "同乗・別乗の条件や前回の車割を考慮",
+      "作成した結果をコピーして共有に活用"
+    ],
+    "faq": [
+      [
+        "一緒に乗る人を指定できますか？",
+        "必ず一緒・一緒NGのグループ条件に対応しています。定員などの条件に応じて結果を確認してください。"
+      ],
+      [
+        "前回と同じ組み合わせを避けられますか？",
+        "前回の車割を考慮して同乗を避ける設定に対応しています。"
+      ]
+    ],
+    "storeUrl": "https://apps.apple.com/jp/app/id1627910277",
+    "minimumOS": "16.0",
+    "version": "2.7",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/d5/d5/c1d5d591-38f7-f186-7ac4-944811d0ed80/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1f/5a/46/1f5a4606-540e-0433-ef44-a596e93da740/84f36aa2-75a3-4703-b19e-0d66e2a84b1a_Apple_iPhone_8_Plus_Screenshot_0.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3d/b8/17/3db817a3-6b6e-0501-863d-c6529bad622a/afad8be0-9990-4822-a602-e6e01b608aad_Apple_iPhone_8_Plus_Screenshot_1.png/392x696bb.png",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/6c/ad/ee/6cadee60-d5a8-751c-9213-32e3fe7c16de/1d552e94-7d09-4bde-8571-58e261d38dcc_Apple_iPhone_8_Plus_Screenshot_2.png/392x696bb.png"
+    ],
+    "privacyUrl": "https://raw.githubusercontent.com/stoneSurume/createSchedules/main/privacy%20policy",
+    "legacyMarketingUrl": "https://stonesurume.github.io/",
+    "supportEmail": "develop.stone.2022@gmail.com",
+    "repository": "yuto6/newCarSplit",
+    "auditedCommit": "4f71391968d1319fa77a0aaffeb3cc8d645d8f20"
+  },
+  {
+    "id": "simple-study-log",
+    "name": "Simple Study Log",
+    "headline": "迷わず始める。学習が積み上がる。",
+    "category": "学習タイマー・記録",
+    "description": "学習を始めることを最優先にしたタイマー。科目やタグを選ばずに計測し、積み上げた時間をグラフで振り返れます。",
+    "features": [
+      "タイマー・ストップウォッチですぐ計測",
+      "週・月のグラフで学習量を確認",
+      "ウィジェット・ライブアクティビティに対応"
+    ],
+    "faq": [
+      [
+        "科目やタグの登録は必要ですか？",
+        "科目・タグ・分類を持たず、学習時間の計測と記録をシンプルに始められます。"
+      ],
+      [
+        "端末間で記録を同期できますか？",
+        "iCloud同期に対応しています。端末のiCloud設定を確認してください。"
+      ]
+    ],
+    "storeUrl": "https://apps.apple.com/jp/app/id6757193095",
+    "minimumOS": "18.0",
+    "version": "1.1",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3f/b2/d7/3fb2d747-26c8-c0c9-fad0-509caa0f91f0/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/512x512bb.jpg",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3b/48/ea/3b48eac3-8022-0fd3-aec3-d9fa46d458ab/Apple_iPhone_11_Pro_Max_Screenshot_1.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/52/ad/d8/52add8ce-faf0-936a-49e4-1a7da42a897c/Apple_iPhone_11_Pro_Max_Screenshot_2.png/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ea/cf/e4/eacfe489-a152-3990-42c3-566a35d279ef/Apple_iPhone_11_Pro_Max_Screenshot_3.png/320x480bb.jpg"
+    ],
+    "privacyUrl": "https://raw.githubusercontent.com/stoneSurume/createSchedules/main/privacy%20policy",
+    "legacyMarketingUrl": "https://stonesurume.github.io/",
+    "supportEmail": "develop.stone.2022@gmail.com",
+    "repository": "yuto6/StudyRecord",
+    "auditedCommit": "41f0d0622b1854875aa86f6a6b91aade43ab27be"
+  },
+  {
+    "id": "okn-viewer",
+    "name": "OKN Viewer",
+    "headline": "眼球運動を、観察して学ぶ。",
+    "category": "OKN観察・教育",
+    "description": "動く縞模様の視覚刺激を表示し、眼球運動を観察・録画する教育アプリ。刺激の方向・速度・帯幅・色を調整できます。",
+    "features": [
+      "上下左右の動く縞模様を表示",
+      "速度・帯幅・色を調整",
+      "前面カメラで録画し、履歴から確認"
+    ],
+    "faq": [
+      [
+        "診断や治療に使えますか？",
+        "教育・学習および観察を目的としたツールです。医療機器ではなく、表示や録画のみで診断・治療判断を行うためのものではありません。"
+      ],
+      [
+        "広告や行動の追跡はありますか？",
+        "公開中の説明では、広告とユーザー行動Analyticsはありません。録画した動画を自動で外部へ送信しません。"
+      ]
+    ],
+    "storeUrl": "https://apps.apple.com/jp/app/id6695726882",
+    "minimumOS": "16.0",
+    "version": "1.5",
+    "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1e/17/dd/1e17dd89-80ec-7b3d-df94-36202ffcf94c/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1d/b2/c2/1db2c29e-4bdf-6b43-215f-38d2087b5306/Apple_iPhone_11_Pro_Max_Screenshot_1.jpg/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/12/3b/ce/123bce69-74dd-0f8a-bbb7-a3128c15c620/Apple_iPhone_11_Pro_Max_Screenshot_2.jpg/320x480bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f0/9a/9f/f09a9f17-19cf-096c-594f-72f5cdfddd52/Apple_iPhone_11_Pro_Max_Screenshot_3.jpg/320x480bb.jpg"
+    ],
+    "privacyUrl": "https://raw.githubusercontent.com/stoneSurume/createSchedules/main/privacy%20policy",
+    "legacyMarketingUrl": null,
+    "supportEmail": "develop.stone.2022@gmail.com",
+    "repository": "yuto6/nystagmusTest",
+    "auditedCommit": "d14999bbf5156981e52ef699c11193936575d043"
+  }
+]

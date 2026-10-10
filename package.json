@@ -1,0 +1,1 @@
+{"name":"ios-app-websites","private":true,"version":"1.0.0","type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test","dev":"node scripts/serve.mjs"},"engines":{"node":">=22"}}

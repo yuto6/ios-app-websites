@@ -1,0 +1,52 @@
+name: Firebase Hosting deployment
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'preview or live (live requires production environment approval)'
+        type: choice
+        options: [preview, live]
+        default: preview
+permissions:
+  contents: read
+concurrency:
+  group: hosting-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  deploy:
+    # Fork code never receives a deployment secret. Unconfigured repositories skip.
+    if: >-
+      vars.FIREBASE_PROJECT_ID != '' && vars.FIREBASE_SITE_ID != '' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+    environment: ${{ (github.event_name == 'push' || inputs.channel == 'live') && 'production' || 'preview' }}
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    env:
+      FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+      FIREBASE_SITE_ID: ${{ vars.FIREBASE_SITE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+      - name: Configure the confirmed single Hosting site
+        run: node scripts/configure-hosting.mjs
+      - name: Build using the confirmed hostname
+        run: npm run build
+        env:
+          SITE_URL: https://${{ vars.FIREBASE_SITE_ID }}.web.app
+          DEPLOYMENT: 'true'
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+          channelId: ${{ (github.event_name == 'push' || inputs.channel == 'live') && 'live' || format('preview-{0}', github.event.pull_request.number || github.run_id) }}
+          expires: 7d
