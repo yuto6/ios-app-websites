@@ -29,7 +29,12 @@ test('six correct store destinations, all route links, and safe public output',a
   assert.ok(html.includes(`https://verified-host.example/apps/${a.id}/`));
   assert.ok(html.includes(a.minimumOS));
   const legal=await read(`apps/${a.id}/privacy/index.html`);
-  assert.ok(legal.includes(a.privacyUrl));
+  assert.ok(legal.includes('id="japanese"'));
+  assert.ok(legal.includes('id="english" lang="en"'));
+  assert.ok(legal.includes('mailto:develop.stone.2022@gmail.com'));
+  assert.ok(!legal.includes('本文の置き換えは行っていません'));
+  if(a.id==='okn-viewer'){assert.ok(legal.includes('端末内保存領域'));assert.ok(!legal.includes('広告の配信や最適化'));}
+  if(a.id==='simple-pfc'){assert.ok(legal.includes('Gemini Developer API'));assert.ok(legal.includes('モデル学習'));}
  }
  assert.equal(destinations.size,6);
  assert.equal((await read('sitemap.xml')).match(/<loc>/g).length,20);
