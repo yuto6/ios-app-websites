@@ -10,7 +10,7 @@ test('six correct store destinations, all route links, and safe public output',a
  const htmlFiles=[];
  async function walk(dir){for(const f of await readdir(dir,{withFileTypes:true})){const path=resolve(dir,f.name);if(f.isDirectory())await walk(path);else if(path.endsWith('.html'))htmlFiles.push(path);}}
  await walk(resolve('dist'));
- assert.equal(htmlFiles.length,21);
+ assert.equal(htmlFiles.length,22);
  const destinations=new Set();
  for(const file of htmlFiles){
   const html=await readFile(file,'utf8');
@@ -37,7 +37,13 @@ test('six correct store destinations, all route links, and safe public output',a
   if(a.id==='simple-pfc'){assert.ok(legal.includes('Gemini Developer API'));assert.ok(legal.includes('モデル学習'));}
  }
  assert.equal(destinations.size,6);
- assert.equal((await read('sitemap.xml')).match(/<loc>/g).length,20);
+ assert.equal((await read('sitemap.xml')).match(/<loc>/g).length,21);
+ const android=await read('apps/giga-helper/android/privacy/index.html');
+ assert.match(android,/jp\.codestock\.android/);
+ assert.match(android,/初期状態では無効/);
+ assert.match(android,/広告ID収集と広告パーソナライズ信号は無効/);
+ assert.match(android,/コードを含むリンク/);
+ assert.doesNotMatch(android,/CloudKit|App Tracking Transparency|IDFA/);
  assert.equal(await read('app-ads.txt'),'google.com, pub-9365795276850353, DIRECT, f08c47fec0942fa0\n');
  assert.match(await read('robots.txt'),/Sitemap: https:\/\/verified-host.example\/sitemap.xml/);
 });

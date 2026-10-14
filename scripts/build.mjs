@@ -1,4 +1,5 @@
 import {privacyBody} from './privacy.mjs';
+import {codeStockAndroidPrivacy} from './android-privacy.mjs';
 import {readFile,writeFile,mkdir,rm,cp} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {resolve,dirname} from 'node:path';
@@ -33,6 +34,7 @@ for(const [i,a] of apps.entries()){
  await page(path+'privacy/',a.name+' プライバシーポリシー',a.name+'の情報の取り扱いについて。日本語・英語対応。',await privacyBody(a));
 }
 await page('/privacy/','このサイトのプライバシー','このWebサイトでのアクセス、外部画像、リンク、お問い合わせの取り扱い。',`<section class="document"><h1>このサイトのプライバシー</h1><p>このWebサイトには、アクセス解析・広告・Cookieを利用する追跡スクリプトを設置していません。Web配信事業者は、配信やセキュリティのためにIPアドレス等のアクセス情報を処理する場合があります。</p><h2>画像・外部リンク</h2><p>App Storeの画像はAppleの画像配信サーバーから読み込まれます。画像表示時に、IPアドレス等がAppleへ送信されます。App Storeやプライバシーポリシーのリンク先には、それぞれのポリシーが適用されます。</p><h2>お問い合わせ</h2><p>メールでお送りいただいたアドレス・内容は、お問い合わせ対応のために利用します。窓口：<a href="mailto:develop.stone.2022@gmail.com">develop.stone.2022@gmail.com</a></p><p>各アプリ内の情報の取り扱いは、各アプリのプライバシーページから現行ポリシーをご確認ください。</p></section>`);
+await page('/apps/giga-helper/android/privacy/','コードストック Android プライバシーポリシー','コードストックAndroid版の端末内保存、広告、任意の診断送信、Google Play購入に関する説明。',await codeStockAndroidPrivacy());
 await page('/404.html','ページが見つかりません','アプリ一覧からお探しください。','<section class="document"><h1>ページが見つかりません</h1><a class="button" href="/">アプリ一覧へ戻る</a></section>',{noindex:true});
 await writeFile(resolve(root,'dist/robots.txt'),origin?`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`:'User-agent: *\nDisallow: /\n');
 await writeFile(resolve(root,'dist/sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${origin?routes.map(p=>`<url><loc>${origin}${p}</loc></url>`).join(''):''}</urlset>`);
