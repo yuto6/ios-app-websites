@@ -47,6 +47,7 @@ Firebase App Check is used to verify the App and help prevent abuse of the AI se
 export async function privacyBody(a){
  const okn=a.id==='okn-viewer';
  const [ja,en]=await Promise.all(['ja','en'].map(lang=>readFile(new URL(`../data/privacy/${okn?'okn':'shared'}-${lang}.md`,import.meta.url),'utf8')));
- const extra=(lang,i)=>okn?'':`<h3>${lang==='ja'?'このアプリ固有の情報':'App-specific information'}</h3>${markdown(specific[a.id][i])}${['kuropuru','giga-helper','simple-study-log'].includes(a.id)?`<p><a href="https://www.apple.com/legal/privacy/">${lang==='ja'?'Appleのプライバシーポリシー':'Apple Privacy Policy'}</a></p>`:''}`;
+ const android=a.id==='car-assignments'?await Promise.all(['ja','en'].map(lang=>readFile(new URL(`../data/privacy/car-assignments-android-${lang}.md`,import.meta.url),'utf8'))):['',''];
+ const extra=(lang,i)=>okn?'':`<h3>${lang==='ja'?'このアプリ固有の情報':'App-specific information'}</h3>${markdown(specific[a.id][i])}${markdown(android[i])}${['kuropuru','giga-helper','simple-study-log'].includes(a.id)?`<p><a href="https://www.apple.com/legal/privacy/">${lang==='ja'?'Appleのプライバシーポリシー':'Apple Privacy Policy'}</a></p>`:''}`;
  return `<a class="back" href="/apps/${a.id}/">← ${e(a.name)}</a><article class="document policy"><p class="eyebrow">PRIVACY POLICY</p><h1>${e(a.name)}<br>プライバシーポリシー</h1><nav class="language-links" aria-label="ポリシーの言語"><a href="#japanese">日本語</a><a href="#english" lang="en">English</a></nav><section id="japanese" lang="ja"><h2>日本語</h2>${extra('ja',0)}${markdown(ja)}</section><section id="english" lang="en"><h2>${e(a.name)} Privacy Policy</h2>${extra('en',1)}${markdown(en)}</section><p><a href="/apps/${a.id}/support/">サポート / Support</a></p></article>`;
 }
