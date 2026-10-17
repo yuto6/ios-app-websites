@@ -1,5 +1,7 @@
 # Public content audit — 2026-10-11 JST
 
+> Historical baseline. Current state as of 2026-10-17 is recorded in [rollout](rollout.md). PR #1 is merged; app-specific policies are implemented; five Japanese listings already link to this site, and the five advertising iOS apps have verified seller files on a mix of legacy/new hosts. Do not use the older destination and verification statements below as current state.
+
 Public Apple lookup and listing links were compared with current repository main and `config/features/*.yaml`. Public copy only: no private analytics, financial data or source code.
 
 | App | App Store ID | Live version / minimum iOS | Existing developer website | Existing privacy link | Current code commit |

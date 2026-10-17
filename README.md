@@ -26,14 +26,14 @@ firebase hosting:channel:deploy review --project yuto-ios-app-websites --expires
 firebase deploy --only hosting --project yuto-ios-app-websites
 ```
 
-`data/apps.json` contains only reviewed public copy, public Apple images, canonical App Store IDs and provenance. Policy routes link to the existing App Store policy destinations; they do not replace policy text. Images load directly from Apple's CDN and are disclosed in `/privacy/`.
+`data/apps.json` contains only reviewed public copy, public Apple images, canonical App Store IDs and provenance. Policy routes render bilingual policy text with app-specific disclosures from `data/privacy/` and `scripts/privacy.mjs`. Legacy policy URLs in the app data are provenance, not authoritative current App Store destinations. Images load directly from Apple's CDN and are disclosed in `/privacy/`.
 
 ## GitHub Actions
 
 Checks run on pushes and PRs. Same-repository PRs deploy a seven-day preview; fork PRs only run checks. A push to main publishes to the one site. Manual deployment defaults to preview; selecting live publishes the checked revision. Repository variables: `FIREBASE_PROJECT_ID` and `FIREBASE_SITE_ID`. Encrypted repository secret: `FIREBASE_SERVICE_ACCOUNT`, populated with the dedicated project service account after explicit user approval. That account has only Hosting Admin and API Keys Viewer in this website-only project. Never commit a key. Rotate it through IAM and GitHub Secrets.
 
-Configure production environment required reviewers to add a release approval gate if desired. The initial implementation stays on a feature branch and a Draft PR; no default-branch merge is performed here.
+Configure production environment required reviewers to add a release approval gate if desired. PR #1 is merged. Production deployment from main has been exercised successfully; the 2026-10-17 audit records the verified revision and run in `docs/rollout.md`.
 
 ## Migration gates and remaining work
 
-See [audit](docs/public-content-audit.md) and [rollout](docs/rollout.md). Keep old Hosting sites and App Store Marketing/Support/Privacy URLs until the complete gate passes. Site publication alone does not verify AdMob or demonstrate SEO impact.
+See [audit](docs/public-content-audit.md) and [rollout](docs/rollout.md). Keep legacy Hosting sites and seller files available. Five Japanese App Store listings already point to this site; inventory current destinations before proposing any further URL change. Site publication alone does not verify AdMob or demonstrate SEO impact.
