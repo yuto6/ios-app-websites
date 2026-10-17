@@ -10,10 +10,14 @@ test('six correct store destinations, all route links, and safe public output',a
  const htmlFiles=[];
  async function walk(dir){for(const f of await readdir(dir,{withFileTypes:true})){const path=resolve(dir,f.name);if(f.isDirectory())await walk(path);else if(path.endsWith('.html'))htmlFiles.push(path);}}
  await walk(resolve('dist'));
- assert.equal(htmlFiles.length,22);
+ assert.equal(htmlFiles.length,23);
  const destinations=new Set();
  for(const file of htmlFiles){
   const html=await readFile(file,'utf8');
+  if(file.endsWith('/google5fc08bd864338917.html')){
+   assert.equal(html,'google-site-verification: google5fc08bd864338917.html');
+   continue;
+  }
   assert.equal((html.match(/<h1>/g)||[]).length,1);
   assert.match(html,/<html lang="ja">/);
   assert.match(html,/<meta name="description"/);
