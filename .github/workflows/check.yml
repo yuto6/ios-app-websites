@@ -15,4 +15,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: local-preview-noindex
+          retention-days: 7
           path: dist
