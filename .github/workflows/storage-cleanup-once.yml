@@ -1,0 +1,83 @@
+name: One-time artifact cleanup (temporary)
+on:
+  push:
+    branches: [chore/artifact-retention-20261103]
+    paths: [.github/workflows/storage-cleanup-once.yml]
+permissions:
+  contents: read
+  actions: write
+jobs:
+  remove-old-duplicate-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Preserve newest and latest successful artifacts; delete only old duplicates
+        uses: actions/github-script@v7
+        env:
+          EXPECTED_REPOSITORY: yuto6/ios-app-websites
+          ARTIFACT_NAME_ALLOWLIST: local-preview-noindex
+        with:
+          script: |
+            const currentRepo = context.repo.owner + "/" + context.repo.repo;
+            if (currentRepo !== process.env.EXPECTED_REPOSITORY) {
+              throw new Error("Repository identity does not match approved target");
+            }
+            const {owner, repo} = context.repo;
+            const allowed = new Set(process.env.ARTIFACT_NAME_ALLOWLIST.split(","));
+            const artifacts = await github.paginate(github.rest.actions.listArtifactsForRepo, {
+              owner, repo, per_page: 100
+            });
+            const cutoff = Date.now() - 7 * 86400000;
+            const byName = new Map();
+            for (const item of artifacts) {
+              if (item.expired || !allowed.has(item.name)) continue;
+              const items = byName.get(item.name) || [];
+              items.push(item);
+              byName.set(item.name, items);
+            }
+            const runConclusions = new Map();
+            const protectedIds = new Set();
+            const candidates = [];
+            for (const [name, items] of byName) {
+              items.sort((a,b) => b.created_at.localeCompare(a.created_at));
+              for (const artifact of items.slice(0, 2)) protectedIds.add(artifact.id);
+              // Retain the latest artifact from a *successful* workflow run,
+              // even if the two newest items were produced by failed builds.
+              for (const artifact of items) {
+                const runId = artifact.workflow_run?.id;
+                if (!runId) {
+                  protectedIds.add(artifact.id);
+                  continue;
+                }
+                if (!runConclusions.has(runId)) {
+                  const data = await github.rest.actions.getWorkflowRun({owner,repo,run_id:runId});
+                  runConclusions.set(runId, data.data.conclusion);
+                }
+                if (runConclusions.get(runId) === "success") {
+                  protectedIds.add(artifact.id);
+                  break;
+                }
+              }
+              for (const artifact of items) {
+                if (protectedIds.has(artifact.id)) continue;
+                if (Date.parse(artifact.created_at) >= cutoff) continue;
+                candidates.push(artifact);
+              }
+            }
+            if (candidates.length > 100) {
+              throw new Error("More than 100 candidate artifacts; refuse bulk deletion");
+            }
+            const plannedMiB = candidates.reduce((n,a) => n+a.size_in_bytes,0)/1048576;
+            core.info("Artifacts total="+artifacts.length+
+              "; protected="+protectedIds.size+"; delete="+candidates.length+
+              "; plannedMiB="+plannedMiB.toFixed(1));
+            for (const a of candidates) {
+              await github.rest.actions.deleteArtifact({owner,repo,artifact_id:a.id});
+              core.info("DELETED id="+a.id+" name="+a.name+
+                " MiB="+(a.size_in_bytes/1048576).toFixed(2));
+            }
+            core.summary.addRaw(
+              "Old artifact cleanup: deleted "+candidates.length+
+              " artifacts (approx. "+plannedMiB.toFixed(1)+
+              " MiB); preserved two newest per name and latest successful release."
+            ).write();
